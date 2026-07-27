@@ -1,0 +1,1169 @@
+<DOCTYPE htlm>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title> ARTISTAS NSFW </title>
+
+<style>
+P{
+Color:#000000;
+}
+Body{
+Background: linear-gradient(45deg, #D1D6FF, #F5276C, #F5B027);
+}
+img{
+width: 400px;
+display: block;
+margin: auto;
+border-radius: 0px;
+}
+
+body{
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 60px;
+margin-rigth: 60px;
+}
+
+h1{
+font-size: 60px;
+color:#ffff;
+font-family: "university" ;
+}
+
+header{
+text-align:left;
+}
+
+
+h2{
+font-size: 70px;
+color:#ffffff;
+font-family: "burbank big" ;
+}
+
+h3{
+font-size: 70px;
+color:#ffffff;
+font-family: "burbank big" ;
+}
+
+h4{
+font-size: 70px;
+color:#ffffff;
+font-family: "burbank big" ;
+}
+
+h5{
+font-size: 70px;
+color:#ffffff;
+font-family: "burbank big" ;
+}
+
+h6{
+font-size: 70px;
+color:#ffffff;
+font-family: "burbank big" ;
+}
+
+h7{
+font-size: 70px;
+color:#ffffff;
+font-family: "burbank big" ;
+}
+
+h8{
+font-size: 70px;
+color:#ffffff;
+font-family: "burbank big" ;
+}
+
+
+
+P{
+Color:#ffffff;
+font-size: 30px;
+font-family: "Arial", serif;
+}
+
+<style>
+
+body{
+      background-image: url("ci.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    font-family:burbank condense;
+    color:white;
+    text-align:center;
+}
+
+.galeria{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.galeria img{
+    width:200px;
+    height:150px;
+    object-fit:cover;
+    cursor:pointer;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.galeria img:hover{
+    transform:scale(1.05);
+}
+
+
+#visor{
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    justify-content:center;
+    align-items:center;
+}
+
+#imagenGrande{
+    max-width:80%;
+    max-height:80%;
+}
+
+
+.anterior,
+.siguiente{
+    position:absolute;
+    top:50%;
+    font-size:50px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+    padding:20px;
+}
+
+.anterior{
+    left:20px;
+}
+
+.siguiente{
+    right:20px;
+}
+
+
+.cerrar{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    cursor:pointer;
+}
+
+</style>
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1> ARTISTAS NSFW </h1>
+</header>
+
+<h2> AMOND SYD </h>
+
+<p>Amon Syd (también conocido como Amon) es un destacado artista e ilustrador dentro de la comunidad furry.Activo desde 2018, es reconocido principalmente por las siguientes características:Estilo artístico: Su trabajo destaca por una mezcla de fuerza, anatomía musculosa (arte estilo Bara) y elementos de terror y monstruos.</p>
+
+<img src="amon syd.png " alt=" Imagen furro "style="border-radius: 450px";>
+
+
+<div class="galeria">
+
+<img src="conejo.jpg" onclick="abrir(0)">
+<img src="amon 1.jpg" onclick="abrir(1)">
+<img src="amon 2.jpg" onclick="abrir(2)">
+<img src="amon 3.jpg" onclick="abrir(3)">
+<img src="amon 4.jpg" onclick="abrir(4)">
+<img src="amon 5.jpg" onclick="abrir(5)">
+<img src="amon 6.jpg" onclick="abrir(6)">
+
+
+
+</div>
+
+<div id="visor">
+
+<span class="cerrar" onclick="cerrar()">&times;</span>
+
+<span class="anterior" onclick="cambiar(-1)">&#10094;</span>
+
+<img id="imagenGrande">
+
+<span class="siguiente" onclick="cambiar(1)">&#10095;</span>
+
+</div>
+
+<script>
+
+let imagenes=[
+"conejo.jpg",
+"amon 1.jpg",
+"amon 2.jpg",
+"amon 3.jpg",
+"amon 4.jpg",
+"amon 5.jpg",
+"amon 6.jpg",
+"montaña.jpg",
+"estper 2.jpg",
+"estper 3.jpg",
+"estper 4.jpg",
+"estper 5.jpg",
+"estper 6.jpg",
+"estper 7.jpg",
+"zcik 2.jpg",
+"zcik 3.jpg",
+"zcik 4.jpg",
+"zcik 5.jpg",
+"zcik 6.jpg",
+"zcik 7.jpg",
+"zcik 8.jpg",
+"zourick 1.jpg",
+"zourick 2.jpg",
+"zourick 5.jpg",
+"zourick 3.jpg",
+"zourick 4.jpg",
+"zourick 7.jpg",
+"zourick 6.jpg",
+"razz 1.jpg",
+"razz 2.jpg",
+"razz 3.jpg",
+"razz 4.jpg",
+"razz 5.jpg",
+"razz 6.jpg",
+"razz 7.jpg",
+"lycaon.jpg",
+"sollys 1.jpg",
+"sollys 3.jpg",
+"sollys 4.jpg",
+"sollys 5.jpg",
+"sollys 6.jpg",
+"sollys 7.jpg",
+"ken 1.jpg",
+"ken 2.jpg",
+"ken 3.png",
+"ken 4.jpg",
+"ken 5.jpg",
+"ken 6.jpg",
+"ken 7.jpg",
+
+
+
+
+
+
+];
+
+let actual=0;
+
+function abrir(i){
+actual=i;
+document.getElementById("visor").style.display="flex";
+document.getElementById("imagenGrande").src=imagenes[actual];
+}
+
+function cerrar(){
+document.getElementById("visor").style.display="none";
+}
+
+function cambiar(n){
+
+actual+=n;
+
+if(actual<0){
+actual=imagenes.length-1;
+}
+
+if(actual>=imagenes.length){
+actual=0;
+}
+
+document.getElementById("imagenGrande").src=imagenes[actual];
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("visor").style.display=="flex"){
+
+if(e.key=="ArrowRight"){
+cambiar(1);
+}
+
+if(e.key=="ArrowLeft"){
+cambiar(-1);
+}
+
+if(e.key=="Escape"){
+cerrar();
+}
+
+}
+
+});
+
+</script>
+
+<h3> ESTPER </h>
+
+<p>Estper (también conocido como Estper Art o EstperGallery) es un popular artista e ilustrador dentro del furry fandom, reconocido principalmente por sus ilustraciones estilo anime y bara (arte enfocado en personajes masculinos fornidos y musculosos).Sus obras frecuentemente presentan personajes antropomórficos y criaturas con anatomía altamente detallada.</p>
+
+<img src="estper.jpg " alt=" Imagen furro " style="border-radius: 450px">
+
+<div class="galeria">
+
+<img src="montaña.jpg" onclick="abrir(7)">
+<img src="estper 2.jpg" onclick="abrir(8)">
+<img src="estper 3.jpg" onclick="abrir(9)">
+<img src="estper 4.jpg" onclick="abrir(10)">
+<img src="estper 5.jpg" onclick="abrir(11)">
+<img src="estper 6.jpg" onclick="abrir(12)">
+<img src="estper 7.jpg" onclick="abrir(13)">
+
+
+</div>
+
+<div id="visor">
+
+<span class="cerrar" onclick="cerrar()">&times;</span>
+
+<span class="anterior" onclick="cambiar(-1)">&#10094;</span>
+
+<img id="imagenGrande">
+
+<span class="siguiente" onclick="cambiar(1)">&#10095;</span>
+
+</div>
+
+<script>
+
+let imagenes=[
+"conejo.jpg",
+"amon 1.jpg",
+"amon 2.jpg",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"montaña.jpg",
+"estper 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zcik 2.jpg",
+"zcik 3.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zourick 1.jpg",
+"zourick 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"razz 1.jpg",
+"razz 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"lycaon.jpg",
+"sollys 1.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"ken 1.jpg",
+"ken 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+
+
+
+
+];
+
+let actual=0;
+
+function abrir(i){
+actual=i;
+document.getElementById("visor").style.display="flex";
+document.getElementById("imagenGrande").src=imagenes[actual];
+}
+
+function cerrar(){
+document.getElementById("visor").style.display="none";
+}
+
+function cambiar(n){
+
+actual+=n;
+
+if(actual<0){
+actual=imagenes.length-1;
+}
+
+if(actual>=imagenes.length){
+actual=0;
+}
+
+document.getElementById("imagenGrande").src=imagenes[actual];
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("visor").style.display=="flex"){
+
+if(e.key=="ArrowRight"){
+cambiar(1);
+}
+
+if(e.key=="ArrowLeft"){
+cambiar(-1);
+}
+
+if(e.key=="Escape"){
+cerrar();
+}
+
+}
+
+});
+
+</script>
+
+
+
+<h4> ZCIK </h>
+
+<p>ZCIK (también conocido como @zcik.art o @zcikart) es un popular ilustrador y animador del furry fandom originario de Colombia, conocido principalmente por crear contenido de temática antropomórfica, el cual incluye arte e ilustraciones para adultos.El artista centra su trabajo en la comunidad furry, produciendo animaciones detalladas y personajes en un estilo muy marcado.</p>
+
+<img src=" zcik.jpg " alt=" Imagen furro " style="border-radius: 450px">
+
+<div class="galeria">
+
+<img src="zcik 2.jpg" onclick="abrir(14)">
+<img src="zcik 3.jpg" onclick="abrir(15)">
+<img src="zcik 4.jpg" onclick="abrir(16)">
+<img src="zcik 5.jpg" onclick="abrir(17)">
+<img src="zcik 6.jpg" onclick="abrir(18)">
+<img src="zcik 7.jpg" onclick="abrir(19)">
+<img src="zcik 8.jpg" onclick="abrir(20)">
+
+
+</div>
+
+<div id="visor">
+
+<span class="cerrar" onclick="cerrar()">&times;</span>
+
+<span class="anterior" onclick="cambiar(-1)">&#10094;</span>
+
+<img id="imagenGrande">
+
+<span class="siguiente" onclick="cambiar(1)">&#10095;</span>
+
+</div>
+
+<script>
+
+let imagenes=[
+"conejo.jpg",
+"amon 1.jpg",
+"amon 2.jpg",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"montaña.jpg",
+"estper 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zcik 2.jpg",
+"zcik 3.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zourick 1.jpg",
+"zourick 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"razz 1.jpg",
+"razz 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"lycaon.jpg",
+"sollys 1.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"ken 1.jpg",
+"ken 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+
+
+
+
+];
+
+let actual=0;
+
+function abrir(i){
+actual=i;
+document.getElementById("visor").style.display="flex";
+document.getElementById("imagenGrande").src=imagenes[actual];
+}
+
+function cerrar(){
+document.getElementById("visor").style.display="none";
+}
+
+function cambiar(n){
+
+actual+=n;
+
+if(actual<0){
+actual=imagenes.length-1;
+}
+
+if(actual>=imagenes.length){
+actual=0;
+}
+
+document.getElementById("imagenGrande").src=imagenes[actual];
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("visor").style.display=="flex"){
+
+if(e.key=="ArrowRight"){
+cambiar(1);
+}
+
+if(e.key=="ArrowLeft"){
+cambiar(-1);
+}
+
+if(e.key=="Escape"){
+cerrar();
+}
+
+}
+
+});
+
+</script>
+
+<h5> ZOURIK </h>
+
+<p>Zourik (también conocido como Zourik Art o Zourik Kriz) es un popular ilustrador, historietista y animador dentro del furry fandom.Es reconocido por crear historias y cómics protagonizados por animales antropomórficos (conocido como arte furro), así como por ser fursuiter (fanático que usa disfraces de personajes animales).</p>
+
+<img src=" zourick.jpg " alt=" Imagen furro " style="border-radius: 450px">
+
+<div class="galeria">
+
+<img src="zourick 1.jpg" onclick="abrir(21)">
+<img src="zourick 2.jpg" onclick="abrir(22)">
+<img src="zourick 5.jpg" onclick="abrir(23)">
+<img src="zourick 3.jpg" onclick="abrir(24)">
+<img src="zourick 4.jpg" onclick="abrir(25)">
+<img src="zourick 7.jpg" onclick="abrir(26)">
+<img src="zourick 6.jpg" onclick="abrir(27)">
+
+
+
+</div>
+
+<div id="visor">
+
+<span class="cerrar" onclick="cerrar()">&times;</span>
+
+<span class="anterior" onclick="cambiar(-1)">&#10094;</span>
+
+<img id="imagenGrande">
+
+<span class="siguiente" onclick="cambiar(1)">&#10095;</span>
+
+</div>
+
+<script>
+
+let imagenes=[
+
+"conejo.jpg",
+"amon 1.jpg",
+"amon 2.jpg",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"montaña.jpg",
+"estper 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zcik 2.jpg",
+"zcik 3.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zourick 1.jpg",
+"zourick 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"razz 1.jpg",
+"razz 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"lycaon.jpg",
+"sollys 1.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"ken 1.jpg",
+"ken 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+
+
+
+];
+
+let actual=0;
+
+function abrir(i){
+actual=i;
+document.getElementById("visor").style.display="flex";
+document.getElementById("imagenGrande").src=imagenes[actual];
+}
+
+function cerrar(){
+document.getElementById("visor").style.display="none";
+}
+
+function cambiar(n){
+
+actual+=n;
+
+if(actual<0){
+actual=imagenes.length-1;
+}
+
+if(actual>=imagenes.length){
+actual=0;
+}
+
+document.getElementById("imagenGrande").src=imagenes[actual];
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("visor").style.display=="flex"){
+
+if(e.key=="ArrowRight"){
+cambiar(1);
+}
+
+if(e.key=="ArrowLeft"){
+cambiar(-1);
+}
+
+if(e.key=="Escape"){
+cerrar();
+}
+
+}
+
+});
+
+</script>
+
+
+<h6> RAZZPER </h>
+
+<p>Razzper (también conocido como Razzpery en redes sociales) es un popular ilustrador y dibujante de cómics dentro de la comunidad furry, conocido por su estilo artístico detallado y expresivo</p>
+
+<img src=" razzper.jpg " alt=" Imagen furro " style="border-radius: 450px">
+
+<div class="galeria">
+
+<img src="razz 1.jpg" onclick="abrir(28)">
+<img src="razz 2.jpg" onclick="abrir(29)">
+<img src="razz 3.jpg" onclick="abrir(30)">
+<img src="razz 4.jpg" onclick="abrir(31)">
+<img src="razz 5.jpg" onclick="abrir(32)">
+<img src="razz 6.jpg" onclick="abrir(33)">
+<img src="razz 7.jpg" onclick="abrir(34)">
+
+
+</div>
+
+<div id="visor">
+
+<span class="cerrar" onclick="cerrar()">&times;</span>
+
+<span class="anterior" onclick="cambiar(-1)">&#10094;</span>
+
+<img id="imagenGrande">
+
+<span class="siguiente" onclick="cambiar(1)">&#10095;</span>
+
+</div>
+
+<script>
+
+let imagenes=[
+"conejo.jpg",
+"amon 1.jpg",
+"amon 2.jpg",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"montaña.jpg",
+"estper 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zcik 2.jpg",
+"zcik 3.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zourick 1.jpg",
+"zourick 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"razz 1.jpg",
+"razz 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"lycaon.jpg",
+"sollys 1.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"ken 1.jpg",
+"ken 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+
+
+
+
+];
+
+let actual=0;
+
+function abrir(i){
+actual=i;
+document.getElementById("visor").style.display="flex";
+document.getElementById("imagenGrande").src=imagenes[actual];
+}
+
+function cerrar(){
+document.getElementById("visor").style.display="none";
+}
+
+function cambiar(n){
+
+actual+=n;
+
+if(actual<0){
+actual=imagenes.length-1;
+}
+
+if(actual>=imagenes.length){
+actual=0;
+}
+
+document.getElementById("imagenGrande").src=imagenes[actual];
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("visor").style.display=="flex"){
+
+if(e.key=="ArrowRight"){
+cambiar(1);
+}
+
+if(e.key=="ArrowLeft"){
+cambiar(-1);
+}
+
+if(e.key=="Escape"){
+cerrar();
+}
+
+}
+
+});
+
+</script>
+
+
+<h7>  SOLLYZ SUNDYZ </h>
+
+<p>Sollyz Sundyz es un reconocido artista digital dentro de la comunidad furry y del estilo kemono (animales antropomórficos de estética japonesa).Es ampliamente conocido por:Estilo de arte: Su trabajo se caracteriza por tener colores vibrantes y un diseño de personajes muy tierno y expresivo.Contenido: Crea ilustraciones y animaciones que abarcan desde contenido general hasta arte explícito para adultos.</p>
+
+<img src=" sollys.jpg " alt=" Imagen furro " style="border-radius: 450px">
+
+<div class="galeria">
+
+<img src="lycaon.jpg" onclick="abrir(35)">
+<img src="sollys 1.jpg" onclick="abrir(36)">
+<img src="sollys 3.jpg" onclick="abrir(37)">
+<img src="sollys 4.jpg" onclick="abrir(38)">
+<img src="sollys 5.jpg" onclick="abrir(39)">
+<img src="sollys 6.jpg" onclick="abrir(40)">
+<img src="sollys 7.jpg" onclick="abrir(41)">
+
+
+
+</div>
+
+<div id="visor">
+
+<span class="cerrar" onclick="cerrar()">&times;</span>
+
+<span class="anterior" onclick="cambiar(-1)">&#10094;</span>
+
+<img id="imagenGrande">
+
+<span class="siguiente" onclick="cambiar(1)">&#10095;</span>
+
+</div>
+
+<script>
+
+let imagenes=[
+"conejo.jpg",
+"amon 1.jpg",
+"amon 2.jpg",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"montaña.jpg",
+"estper 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zcik 2.jpg",
+"zcik 3.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zourick 1.jpg",
+"zourick 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"razz 1.jpg",
+"razz 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"lycaon.jpg",
+"sollys 1.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"ken 1.jpg",
+"ken 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+
+
+
+];
+
+let actual=0;
+
+function abrir(i){
+actual=i;
+document.getElementById("visor").style.display="flex";
+document.getElementById("imagenGrande").src=imagenes[actual];
+}
+
+function cerrar(){
+document.getElementById("visor").style.display="none";
+}
+
+function cambiar(n){
+
+actual+=n;
+
+if(actual<0){
+actual=imagenes.length-1;
+}
+
+if(actual>=imagenes.length){
+actual=0;
+}
+
+document.getElementById("imagenGrande").src=imagenes[actual];
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("visor").style.display=="flex"){
+
+if(e.key=="ArrowRight"){
+cambiar(1);
+}
+
+if(e.key=="ArrowLeft"){
+cambiar(-1);
+}
+
+if(e.key=="Escape"){
+cerrar();
+}
+
+}
+
+});
+
+</script>
+
+
+<h8>  KEN WIGGLEWIZARD </h>
+
+<p>Ken Wiggle Wizard (también conocido como Ken o @kenwigglewizard) es un artista digital e ilustrador enfocado en la subcultura furry (antropomórfica). Su trabajo incluye arte, cómics y animaciones de contenido para adultos (18+) y fetiches como látex, patas (paws) y BDSM.</p>
+
+<img src=" ken.jpg " alt=" Imagen furro " style="border-radius: 450px">
+
+<div class="galeria">
+
+<img src="ken 1.jpg " onclick="abrir(42)">
+<img src="ken 2.jpg" onclick="abrir(43)">
+<img src="ken 3.png" onclick="abrir(44)">
+<img src="ken 4.jpg" onclick="abrir(45)">
+<img src="ken 5.jpg" onclick="abrir(46)">
+<img src="ken 6.jpg" onclick="abrir(47)">
+<img src="ken 7.jpg" onclick="abrir(48)">
+
+</div>
+
+<div id="visor">
+
+<span class="cerrar" onclick="cerrar()">&times;</span>
+
+<span class="anterior" onclick="cambiar(-1)">&#10094;</span>
+
+<img id="imagenGrande">
+
+<span class="siguiente" onclick="cambiar(1)">&#10095;</span>
+
+</div>
+
+<script>
+
+let imagenes=[
+"conejo.jpg",
+"amon 1.jpg",
+"amon 2.jpg",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"montaña.jpg",
+"estper 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zcik 2.jpg",
+"zcik 3.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"zourick 1.jpg",
+"zourick 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"razz 1.jpg",
+"razz 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"lycaon.jpg",
+"sollys 1.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+"ken 1.jpg",
+"ken 2.jpg",
+"jonesy.webp",
+"kinger 2.jpg",
+"gangle.webp",
+"zooble.webp",
+"ragatha.webp",
+
+
+];
+
+let actual=0;
+
+function abrir(i){
+actual=i;
+document.getElementById("visor").style.display="flex";
+document.getElementById("imagenGrande").src=imagenes[actual];
+}
+
+function cerrar(){
+document.getElementById("visor").style.display="none";
+}
+
+function cambiar(n){
+
+actual+=n;
+
+if(actual<0){
+actual=imagenes.length-1;
+}
+
+if(actual>=imagenes.length){
+actual=0;
+}
+
+document.getElementById("imagenGrande").src=imagenes[actual];
+
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("visor").style.display=="flex"){
+
+if(e.key=="ArrowRight"){
+cambiar(1);
+}
+
+if(e.key=="ArrowLeft"){
+cambiar(-1);
+}
+
+if(e.key=="Escape"){
+cerrar();
+}
+
+}
+
+});
+
+</script>
+
+
+
+
+
+
